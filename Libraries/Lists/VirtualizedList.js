@@ -1270,6 +1270,7 @@ class VirtualizedList extends React.PureComponent<Props, State> {
       this._totalCellsMeasured += curr ? 0 : 1;
       this._averageCellLength =
         this._totalCellLength / this._totalCellsMeasured;
+      if(!isFinite(this._averageCellLength) || !isNaN(this._averageCellLength)) this._averageCellLength = 0;
       this._frames[cellKey] = next;
       this._highestMeasuredFrameIndex = Math.max(
         this._highestMeasuredFrameIndex,
